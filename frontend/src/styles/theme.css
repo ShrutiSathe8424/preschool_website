@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Sprout design tokens — "crayon box"
+   Each module owns one crayon colour; the rest of the interface stays quiet
+   so the colour is what tells you where you are.
+   ========================================================================== */
+
+:root {
+  /* --- crayons ------------------------------------------------------- */
+  --grape-50:  #F1ECFF;
+  --grape-100: #DFD3FF;
+  --grape-500: #6C4CE0;
+  --grape-600: #5A3BC8;
+
+  --tangerine-50:  #FFF0E4;
+  --tangerine-100: #FFDCC0;
+  --tangerine-500: #FF7A18;
+  --tangerine-600: #E96300;
+
+  --teal-50:  #E0F7F5;
+  --teal-100: #B8ECE8;
+  --teal-500: #00A6A0;
+  --teal-600: #008C87;
+
+  --bubblegum-50:  #FFE9F1;
+  --bubblegum-500: #FF4E8B;
+  --bubblegum-600: #E93872;
+
+  --sunshine-50:  #FFF5DA;
+  --sunshine-500: #FFC53D;
+  --sunshine-600: #E9A800;
+
+  --leaf-50:  #E3F8ED;
+  --leaf-500: #34C77B;
+  --leaf-600: #1FA55F;
+
+  --sky-500: #3BA0FF;
+
+  /* --- neutrals ------------------------------------------------------ */
+  --ink-900: #241E46;   /* deep indigo, not black — softer on a school page */
+  --ink-700: #4A4470;
+  --ink-500: #736E94;
+  --ink-300: #A9A5BF;
+  --line:    #E4E6F2;
+  --line-soft: #EFF1F9;
+  --paper:   #FFFFFF;
+  --wash:    #EEF3FC;   /* page background */
+  --wash-deep: #E3EBFA;
+
+  /* --- states -------------------------------------------------------- */
+  --danger-50: #FDE8E9;
+  --danger-500: #E5484D;
+  --success-50: var(--leaf-50);
+  --success-500: var(--leaf-600);
+  --warn-50: var(--sunshine-50);
+  --warn-600: #B07800;
+
+  /* --- semantic ------------------------------------------------------ */
+  --color-text: var(--ink-900);
+  --color-text-muted: var(--ink-500);
+  --color-text-faint: var(--ink-300);
+  --color-border: var(--line);
+  --color-danger: var(--danger-500);
+
+  /* Overridden per role by .role-admin / .role-teacher / .role-parent */
+  --accent-50: var(--grape-50);
+  --accent-100: var(--grape-100);
+  --accent: var(--grape-500);
+  --accent-deep: var(--grape-600);
+
+  /* --- type ---------------------------------------------------------- */
+  --font-display: "Fredoka", "Trebuchet MS", sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-child: "Baloo 2", "Fredoka", cursive;
+
+  /* --- shape --------------------------------------------------------- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(36, 30, 70, 0.06);
+  --shadow-md: 0 6px 18px -8px rgba(36, 30, 70, 0.18);
+  --shadow-lg: 0 24px 48px -24px rgba(36, 30, 70, 0.32);
+  --shadow-pop: 0 12px 0 -6px var(--accent-100);
+
+  --sidebar-w: 248px;
+}
+
+.role-admin   { --accent-50: var(--grape-50);      --accent-100: var(--grape-100);      --accent: var(--grape-500);      --accent-deep: var(--grape-600); }
+.role-teacher { --accent-50: var(--tangerine-50);  --accent-100: var(--tangerine-100);  --accent: var(--tangerine-500);  --accent-deep: var(--tangerine-600); }
+.role-parent  { --accent-50: var(--teal-50);       --accent-100: var(--teal-100);       --accent: var(--teal-500);       --accent-deep: var(--teal-600); }
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--wash);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink-900);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+h1 { font-size: 27px; line-height: 1.2; }
+h2 { font-size: 20px; }
+h3 { font-size: 17px; }
+
+p { margin: 0; }
+
+a { color: var(--accent-deep); }
+
+button, input, select, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+::selection { background: var(--accent-100); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
