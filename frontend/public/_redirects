@@ -1,1 +1,2 @@
  _redirects (no extension, just that, with the leading underscore). Don't let GitHub's autocomplete change it.
+ /* /index.html 200
